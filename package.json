@@ -1,0 +1,33 @@
+{
+  "name": "frontend-template",
+  "version": "0.0.1",
+  "description": "Base template",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Exiragor/frontend-template.git"
+  },
+  "author": "Alex",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Exiragor/frontend-template/issues"
+  },
+  "homepage": "https://github.com/Exiragor/frontend-template#readme",
+  "devDependencies": {
+    "autoprefixer": "^8.2.0",
+    "css-loader": "^0.28.11",
+    "node-sass": "^4.8.3",
+    "postcss-loader": "^2.1.3",
+    "sass-loader": "^6.0.7",
+    "style-loader": "^0.20.3",
+    "webpack": "^4.2.0"
+  },
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.1"
+  }
+}
