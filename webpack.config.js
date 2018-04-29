@@ -1,16 +1,41 @@
 const path = require('path');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+
+const context = path.resolve(__dirname);
 
 module.exports = {
-  entry: './src/app.js',
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist')
+  context,
+
+  entry: {
+		all: ['babel-polyfill', 'jquery', './src/js/index.js', './src/scss/app.scss'],
+		// pug: './webpack/pug.js',
+		// images: './webpack/images.js',
   },
+  
+  output: {
+    filename: 'js/bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    pathinfo: true,
+  },
+
+  resolve: {
+		alias: {
+			jquery: path.resolve(context, 'node_modules/jquery/src/jquery.js'),
+		},
+  },
+  
   module: {
     rules: [
       {
         test: /\.(scss)$/,
+        exclude: /node_modules/,
         use: [
+          {
+						loader: 'file-loader',
+						options: {
+							name: 'css/[name].css',
+						},
+					},
           {
             // Adds CSS to the DOM by injecting a `<style>` tag
             loader: 'style-loader'
