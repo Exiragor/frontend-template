@@ -1,5 +1,6 @@
 const path = require('path');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const CleanPlugin = require('clean-webpack-plugin');
 
 const context = path.resolve(__dirname);
 
@@ -8,12 +9,12 @@ module.exports = {
 
   entry: {
 		all: ['babel-polyfill', 'jquery', './src/js/index.js', './src/scss/app.scss'],
-		// pug: './webpack/pug.js',
-		// images: './webpack/images.js',
+		pug: './src/js/pug.js',
+		images: './src/js/image.js',
   },
   
   output: {
-    filename: 'js/bundle.js',
+    filename: 'js/[name].js',
     path: path.resolve(__dirname, 'dist'),
     pathinfo: true,
   },
@@ -26,6 +27,15 @@ module.exports = {
   
   module: {
     rules: [
+      // js loader
+			{
+				test: /\.js$/,
+				exclude: [/node_modules/],
+				use: {
+					loader: 'babel-loader',
+				},
+			},
+      // scss loader
       {
         test: /\.(scss)$/,
         exclude: /node_modules/,
@@ -35,17 +45,17 @@ module.exports = {
 						options: {
 							name: 'css/[name].css',
 						},
-					},
-          {
-            // Adds CSS to the DOM by injecting a `<style>` tag
-            loader: 'style-loader'
           },
           {
-            // Interprets `@import` and `url()` like `import/require()` and will resolve them
+            loader: 'extract-loader',
+            options: {
+							publicPath: './',
+						},
+					},
+          {
             loader: 'css-loader'
           },
           {
-            // Loader for webpack to process CSS with PostCSS
             loader: 'postcss-loader',
             options: {
               plugins: function () {
@@ -56,11 +66,88 @@ module.exports = {
             }
           },
           {
-            // Loads a SASS/SCSS file and compiles it to CSS
             loader: 'sass-loader'
           }
         ]
-      }
+      },
+      // pug loader
+			{
+				test: /\.(pug)$/,
+				exclude: /node_modules/,
+				use: [
+					{
+						loader: 'file-loader',
+						options: {
+							name: '[path][name].html',
+							context: 'src/pug/',
+						},
+					},
+					{
+						loader: 'pug-html-loader',
+						options: {
+							pretty: true,
+						},
+					},
+				],
+			},
+
+			// images loader
+			{
+				test: /\.(jpg|jpeg|png|svg|ico|gif)$/,
+				exclude: /node_modules/,
+				use: [
+					{
+						loader: 'file-loader',
+						options: {
+							name: '[path][name].[ext]',
+							context: 'src/',
+						},
+					},
+					{
+						loader: 'image-webpack-loader',
+						options: {
+							svgo: {
+								plugins: [{removeEmptyAttrs: true}],
+							},
+							optipng: {
+								optimizationLevel: 5,
+							},
+							mozjpeg: {
+								quality: 80,
+							},
+						},
+					},
+				],
+			}
     ]
-  }
+	},
+	
+	target: 'web',
+	devtool: 'eval',
+	stats: {
+		colors: true,
+		modules: false,
+	},
+	watch: true,
+	watchOptions: {
+		poll: 1000,
+		ignored: /node_modules/,
+	},
+
+	plugins: [
+		new CleanPlugin(['dist/'], {
+			root: context,
+			verbose: true,
+			dry: false,
+		}),
+		new BrowserSyncPlugin({
+			host: 'localhost',
+			port: 3000,
+			server: {
+				baseDir: 'dist',
+				directory: true,
+			},
+			startPath: '/index.html',
+		}),
+	],
 };

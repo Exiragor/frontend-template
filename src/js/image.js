@@ -1,0 +1,1 @@
+require.context('../images/', true, /\.(svg|png|jpg|ico|gif)$/);

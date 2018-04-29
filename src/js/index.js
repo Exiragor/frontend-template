@@ -1,1 +1,6 @@
-console.log("asdasd");
+import 'bootstrap';
+
+// some code
+(() => {
+    console.log("test");
+})();

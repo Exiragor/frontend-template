@@ -1,0 +1,19 @@
+html(lang="ru")
+	head
+		meta(charset="UTF-8")
+		title Init project
+
+		meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+
+		//- ===== styles =====
+		link(rel="stylesheet", href="css/app.css")
+	body
+		header.header
+			.row
+				.col-ls-12
+					include ../includes/logo
+		main.main
+			block content
+		footer.footer footer
+
+		script(type="text/javascript", src="js/all.js", async="async")
