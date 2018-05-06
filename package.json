@@ -4,7 +4,8 @@
   "description": "Base template",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --hide-modules"
+    "start": "webpack --hide-modules --mode=development",
+    "prod": "webpack --hide-modules --mode=production --config=webpack.prod.config.js"
   },
   "repository": {
     "type": "git",

@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
 
@@ -15,7 +16,7 @@ module.exports = {
   
   output: {
     filename: 'js/[name].js',
-    path: path.resolve(__dirname, 'dev'),
+    path: path.resolve(__dirname, 'dist'),
     pathinfo: true,
   },
 
@@ -123,31 +124,13 @@ module.exports = {
 	},
 	
 	target: 'web',
-	devtool: 'eval',
-	stats: {
-		colors: true,
-		modules: false,
-	},
-	watch: true,
-	watchOptions: {
-		poll: 1000,
-		ignored: /node_modules/,
-	},
+    stats: 'errors-only',
 
 	plugins: [
-		new CleanPlugin(['dev/'], {
+		new CleanPlugin(['dist/'], {
 			root: context,
 			verbose: true,
 			dry: false,
-		}),
-		new BrowserSyncPlugin({
-			host: 'localhost',
-			port: 3000,
-			server: {
-				baseDir: 'dev',
-				directory: true,
-			},
-			startPath: '/index.html',
-		}),
+        }),
 	],
 };
