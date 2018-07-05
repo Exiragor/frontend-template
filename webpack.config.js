@@ -149,5 +149,12 @@ module.exports = {
 			},
 			startPath: '/index.html',
 		}),
-	],
+    new CopyWebpackPlugin([{
+      from: './src/fonts',
+      to: './fonts'
+    },
+  ]),
+  
+  ],
+  
 };
