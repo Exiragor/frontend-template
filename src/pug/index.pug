@@ -1,4 +1,192 @@
 extends extends/layout
 
-block content
-	.square
+
+block conten-main
+  section.top-baner
+    img(src="images/header-banner.png" alt="Вентиляция")
+    h1
+      | профессиональная очистка
+      br
+      | систем вентиляции
+  section.definition-eliservis
+    .container 
+      .row
+        .col-sm-12.col-md-6.col-lg-6
+          img(src="images/img-1-prevu.jpg" alt="Превью" width="536px" height= "380px")
+        .col-sm-12.col-md-6.col-lg-6
+          .text-left-block
+            h2.underlining--green.text-left ЭлиСервис
+            p.text--smal
+              | Своевременная очистка систем вентиляции от пыли, жира и мусора просто необходима любому промышленному или бытовому зданию. Скапливающиеся в воздуховодах отложения способствуют распространению множества заболеваний и отравлений, а также могут стать причиной пожара.
+            p.text--smal
+              | Компания ЭЛИСЕРВИС предлагает полный спектр услуг по очистке и дезинфекции систем вентиляции в Москве, Московской области и других регионах России. Использование профессионального оборудования и современных методов очистки позволяет нам выполнять проекты любой сложности быстро и качественно.
+              | Наша компания успешно прошла сертификацию Системы менеджмента качества ГОСТ ISO 9001:2015 (ISO 9001:2015).
+            p.text-smal
+              | Будем рады сотрудничеству с вашей организацией!
+  section.services
+    .container
+      h2.underlining--green
+        | Услуги
+      article.services-list
+        .row
+          .col-sm-12.col-md-6.col-lg-6.p-0.m-0
+            .services-list__item
+              img(src="images/services/1.png", alt="Очистка систем вентиляции от пыли")
+              p
+                | Очистка систем
+                br
+                | вентиляции от пыли
+              span Подробно
+            .services-list__item
+              img(src="images/services/3.png", alt="Дезинфекция вентиляции")
+              p
+                | Дезинфекция
+                br
+                | вентиляции
+              span Подробно
+          .col-sm-12.col-md-6.col-lg-6.p-0.m-0
+            .services-list__item
+              img(src="images/services/2.png", alt="Очистка воздуховодов от жировых отложений")
+              p
+                | Очистка воздуховодов
+                br
+                | от жировых отложений
+              span Подробно
+            .services-list__item
+              img(src="images/services/4.png", alt="Микробиологическое обследование СЭС")
+              p
+                | Микробиологическое
+                br
+                | обследование СЭС
+              span Подробно
+  section.cost
+    .container
+      h2.underlining--green стоимость 
+      .row
+        .col-sm-12.col-md-6.col-lg-4
+          article.cost__items.item--1
+            .text-flex-wrapper
+              h3.underlining--white.text-center ОЧИСТКА ОТ ПЫЛИ
+              ul.cost__list.text-center
+                li
+                  |Очистка воздуховодов от
+                  br
+                  |пылевых отложений от 150 руб/м
+                li
+                  |Дезинфекция
+                  br
+                  |систем вентиляции от 50 руб/м
+                li
+                  |Микробиологическое
+                  br
+                  |исследование от 1500 руб/смыв
+        .col-sm-12.col-md-6.col-lg-4
+          article.cost__items.item--2
+            .text-flex-wrapper
+              h3.underlining--white.text-center ОЧИСТКА ОТ ЖИРА
+              ul.cost__list.text-center
+                li
+                  |Очистка воздуховодов от
+                  br
+                  |жировых отложений от 600 руб/м
+                li
+                  |Очистка вытяжных зонтов от
+                  br
+                  |жировых отложений от 2000 руб/ед
+                li
+                  |Очистка улитки
+                  br
+                  |вентилятора  от 2000 руб/ед
+        .col-sm-12.col-md-6.col-lg-4
+          article.cost__items.item--3
+            .text-flex-wrapper
+              h3.underlining--white.text-center ОБСЛУЖИВАНИЕ
+              ul.cost__list.text-center
+                li
+                  | Определение состояния
+                  br
+                  |вентиляционных систем от 50 руб/м
+                li
+                  | Изготовление и установка
+                  br
+                  |инспекционного лючка от 300 руб/ед
+                li
+                  | Оформление
+                  br
+                  |журнала учета работ -  бесплатно!
+  section.advantages
+    .container
+      h2.underlining--green преимущества
+        .row.mt-5
+          .col-sm-12.col-md-4.col-lg-4
+            .advantages__item
+              img(src="images/icons-servis/1.png")
+              p.strong-text 
+                |СОВРЕМЕННОЕ ОБОРУДОВАНИЕ
+                br
+                |И ТЕХНОЛОГИИ
+              p.text--normal Мы используем новейшее оборудование и современные методы очистки и дезинфекции
+            .advantages__item
+              img(src="images/icons-servis/4.png")
+              p.strong-text 
+                |Мобильность
+                br
+                |и оперативность
+              p.text--normal Нас не приходится ждать сутками. После получения заявки мы прибываем в точно оговоренное с заказчиком время
+          .col-sm-12.col-md-4.col-lg-4
+            .advantages__item
+              img(src="images/icons-servis/2.png")
+              p.strong-text 
+                |ОБУЧЕНИЕ И КОНСУЛЬТАЦИИ
+              p.text--normal Мы покажем, как правильно использовать системы вентиляции и дадим бесплатную консультацию по вопросам ее эксплуатации
+            .advantages__item
+              img(src="images/icons-servis/5.png")
+              p.strong-text
+                |проекты любой
+                br
+                |сложности
+              p.text--normal Очистка в самых труднодоступных местах
+          .col-sm-12.col-md-4.col-lg-4
+            .advantages__item
+              img(src="images/icons-servis/3.png")
+              p.strong-text 
+                |СВОЕВРЕМЕННОЕ
+                br
+                |ТЕХОБСЛУЖИВАНИЕ
+              p.text--normal При заключении  с нами договора на постоянной основе мы вовремя производим регламентные работы и предоставляем скидки
+            .advantages__item
+              img(src="images/icons-servis/6.png")
+              p.strong-text
+                |высокая квалификация
+                br
+                |персонала
+              p.text--normal Весь персонал компании проходит обучение и курсы повышения квалификации
+
+  section.gallery
+    .container
+      img(src="images/gallery/1.png")
+      img(src="images/gallery/2.png")
+      img(src="images/gallery/3.png")
+      img(src="images/gallery/4.png")
+      img(src="images/gallery/5.png")
+      img(src="images/gallery/6.png")
+      img(src="images/gallery/7.png")
+      img(src="images/gallery/8.png")
+      img(src="images/gallery/9.png")
+      b Все работы
+
+  section.review
+    .container
+      h2.underlining--green Отзывы
+      p.title-text ОДЦ «Гелиос»
+      p Выражаем благодарность ООО «ЭлиСервис» за качественно и в срок выполненную работу по очистке и дезинфекции систем вентиляции нашей школы.  Работы проводились высококвалифицированными сотрудниками, при производстве работ использовалось высокотехнологичное оборудование. Без сомнений воспользуемся услугами этой организации и в следующий раз!
+      small Исп. директор  ОДЦ Гелиос - Николаев В. С
+      img(src="images/review.png")
+
+  
+
+
+
+
+
+    
