@@ -1,20 +1,68 @@
 doctype html
 html(lang="ru")
-	head
-		meta(charset="UTF-8")
-		title Init project
+  head
+    meta(charset="UTF-8")
+    title Eli-Servis
 
-		meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
 
-		//- ===== styles =====
-		link(rel="stylesheet", href="css/app.css")
-	body
-		header.header
-			.row
-				.col-ls-12
-					include ../includes/logo
-		main.main
-			block content
-		footer.footer footer
+    //- ===== styles =====
+    link(rel="stylesheet", href="css/app.css")
+  body
+    header.header
+      .container
+        .row
+          .col-sm-12.col-md-5.col-lg-5
+            a(href="#").logo-link
+              img(src="images/eliservis-logo.png" alt="Eli Servis")
+            p.header__logo-text 
+              |ПРОФЕССИОНАЛЬНАЯ ОЧИСТКА
+              <br>
+              |СИСТЕМ ВЕНТИЛЯЦИИ
+          
+          .col-sm-12.col-md-7.col-lg-7
+            p.header__phon +7 (495) 796-8770
+            p.header__mail info@eliservice.ru
+            nav.top-menu 
+              ul.top-menu__items
+                li.top-menu__item
+                  a УСЛУГИ
+                li.top-menu__item
+                  a СТОИМОСТЬ
+                li.top-menu__item
+                  a ПРЕИМУЩЕСТВА
+                li.top-menu__item
+                  a ГАЛЕРЕЯ
+                li.top-menu__item
+                  a отзывы
+                li.top-menu__item
+                  a КОНТАКТЫ
+			
+    
+    main.main
+      block conten-main
+    
 
-		script(type="text/javascript", src="js/all.js", async="async")
+    footer.footer
+      .container 
+        article.contacts
+          h2 Контакты
+          p г. Королев, ул. Дурылина, д. 39
+          p 
+            |Тел: +7(495)796-8770
+            br
+            |Моб: +7(968)788-9306
+          p info@eliservice.ru
+
+        article.question
+          h2 ответим на любые вопросы
+          p 
+          |напишите нам, или оставьте номер своего телефона,
+          br
+          |мы перезвоним, и ответим на любые вопросы 
+          p Номер телефона
+          p Электронная почта
+          p Ваш вопрос
+          button отправить 
+
+    script(type="text/javascript", src="js/all.js", async="async")
